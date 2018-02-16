@@ -9,9 +9,18 @@ const initialState = {
         { id: 11, name: 'Вдали от обезумевшей толпы', date: 'Wed, 24 Feb 2010 12:45:44 GMT'},
         { id: 6, name: 'Властелин колец', date: 'Wed, 21 Feb 2017 12:45:44 GMT'},
         { id: 7, name: 'Возвращение в Брайдсхед', date: 'Wed, 27 Feb 2017 12:45:44 GMT'},
-        { id: 8, name: 'Гроздья гнева', date: 'Wed, 15 Feb 2017 12:45:44 GMT'}
+        { id: 8, name: 'Гроздья гнева', date: 'Wed, 15 Feb 2017 12:45:44 GMT'},
+        { id: 19, name: 'Автостопом по галактике', date: 'Wed, 14 Feb 2010 12:45:44 GMT'},
+        { id: 12, name: 'Алхимик', date: 'Wed, 20 Feb 2014 12:45:44 GMT'},
+        { id: 13, name: 'Ангус, ремни и конкретные обжимашки', date: 'Wed, 15 Feb 2014 12:45:44 GMT'},
+        { id: 14, name: 'Библия ядовитого леса', date: 'Wed, 10 Feb 2015 12:45:44 GMT'},
+        { id: 15, name: 'Вдали от обезумевшей толпы', date: 'Wed, 24 Feb 2011 12:45:44 GMT'},
+        { id: 16, name: 'Властелин колец', date: 'Wed, 21 Feb 2016 12:45:44 GMT'},
+        { id: 17, name: 'Возвращение в Брайдсхед', date: 'Wed, 27 Feb 2015 12:45:44 GMT'},
+        { id: 18, name: 'Гроздья гнева', date: 'Wed, 15 Feb 2013 12:45:44 GMT'}
     ],
-    itemListActive: ''
+    itemListActive: '',
+    page: 1
 };
 
 const listReducer = (state = initialState, action) => {
@@ -56,6 +65,26 @@ const listReducer = (state = initialState, action) => {
                 ...state,
                 list: listEdit
             };
+
+        case listActions.CHANGE_PAGINATION:
+            return {
+                ...state,
+                page: action.page
+        };
+
+        case listActions.CHANGE_PAGINATION_NEXT:
+            const nextPage = state.page + 1;
+            return {
+                ...state,
+                page: nextPage
+        };
+
+        case listActions.CHANGE_PAGINATION_PREV:
+            const prevPage = state.page - 1;
+            return {
+                ...state,
+                page: prevPage
+        };
 
         default:
             return state;

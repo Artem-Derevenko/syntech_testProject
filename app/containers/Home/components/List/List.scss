@@ -2,8 +2,9 @@
 
 .list {
   margin: 40px 0;
+  width: 600px;
   .block-item {
-    width: 600px;
+    width: 100%;
     padding: 12px 10px;
     color: $grey-element;
     display: -webkit-box;
