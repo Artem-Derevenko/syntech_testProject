@@ -1,0 +1,44 @@
+@import "../../../../utils/variables.scss";
+
+.block-pagination {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 600px;
+  margin: 30px 0;
+  text-align: right;
+  li {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    list-style-type: none;
+    margin: 0 10px;
+    cursor: pointer;
+    &.hide {
+      display: none;
+    }
+    &.item-pagination {
+      width: auto;
+      font-size: 20px;
+      color: $blue;
+      &:hover {
+        color: $grey-dark;
+      }
+      &.active {
+        color: $grey-dark;
+      }
+    }
+    img {
+      display: inline-block;
+      width: 32px;
+      height: auto;
+      float: left;
+    }
+  }
+}
