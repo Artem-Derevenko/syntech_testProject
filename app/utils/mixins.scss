@@ -1,0 +1,29 @@
+@import "variables";
+
+@mixin card-block {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  color: $text-dark;
+  margin: 16px;
+  font-size: 12px;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.33);
+}
+
+@mixin icon-button {
+  flex: 0 0 auto;
+  display: block;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+@mixin side-menu {
+  white-space: nowrap;
+  width: 0;
+  transition: 0.2s;
+  color: $text-dark;
+}

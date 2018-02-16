@@ -1,0 +1,50 @@
+@import "../../../../utils/variables.scss";
+
+.list {
+  margin: 40px 0;
+  .block-item {
+    width: 600px;
+    padding: 12px 10px;
+    color: $grey-element;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    &:nth-child(2n) {
+      background-color: #fff;
+    }
+    &:nth-child(2n+1) {
+      background-color: #f1f1f1;
+    }
+    .icon {
+      display: block;
+      width: 32px;
+      height: auto;
+      cursor: pointer;
+    }
+    .input-wrap {
+      width: 540px;
+      height: 40px;
+      display: block;
+      input {
+        display: block;
+        width: 100%;
+        padding: 0 15px;
+        height: 100%;
+        color: $grey-element;
+        &.active {
+          background-color: #fff;
+          border: 1px solid #edeff1;
+          &:focus::-webkit-input-placeholder { color:transparent; }
+          &:focus::-moz-placeholder { color:transparent; }
+          &:focus::placeholder { color:transparent; }
+        }
+      }
+    }
+  }
+}

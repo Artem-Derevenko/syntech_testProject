@@ -1,0 +1,109 @@
+.list {
+  margin: 40px 0; }
+  .list .block-item {
+    width: 600px;
+    padding: 12px 10px;
+    color: #8897a9;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center; }
+    .list .block-item:nth-child(2n) {
+      background-color: #fff; }
+    .list .block-item:nth-child(2n+1) {
+      background-color: #f1f1f1; }
+    .list .block-item .icon {
+      display: block;
+      width: 32px;
+      height: auto;
+      cursor: pointer; }
+    .list .block-item .input-wrap {
+      width: 540px;
+      height: 40px;
+      display: block; }
+      .list .block-item .input-wrap input {
+        display: block;
+        width: 100%;
+        padding: 0 15px;
+        height: 100%;
+        color: #8897a9; }
+        .list .block-item .input-wrap input.active {
+          background-color: #fff;
+          border: 1px solid #edeff1; }
+          .list .block-item .input-wrap input.active:focus::-webkit-input-placeholder {
+            color: transparent; }
+          .list .block-item .input-wrap input.active:focus::-moz-placeholder {
+            color: transparent; }
+          .list .block-item .input-wrap input.active:focus::placeholder {
+            color: transparent; }
+.menu {
+  padding: 50px 0; }
+  .menu li {
+    display: inline-block;
+    margin-right: 30px; }
+    .menu li:last-child {
+      margin-right: 0; }
+    .menu li a {
+      color: #0aa89e;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-decoration: none; }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: border-box; }
+
+body {
+  line-height: 1;
+  height: 100%;
+  background-color: #ffffff; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+.page-wrap {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto; }
+
+.input {
+  display: block;
+  width: 600px;
+  height: 40px;
+  border: 1px solid #0aa89e;
+  outline: none;
+  padding: 0 20px;
+  color: #8897a9; }
+
+/*# sourceMappingURL=styles.css.map*/
