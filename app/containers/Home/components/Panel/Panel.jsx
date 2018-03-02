@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import Button from '../../../../components/Button/Button.jsx';
 import { connect } from 'react-redux';
 import { showList, addItemToList } from './actions.js';
+import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
+import './Panel.scss';
 
 class Panel extends Component {
-    // _showList = (show) => {
-    //     this.props.onShowList(show);
-    // }
-
     _AddItem = (id, name, date) => {
         this.props.onAddItem(id, name, date);
     }
@@ -25,16 +23,15 @@ class Panel extends Component {
     }
 
     render() {
-
-        //<Button
-        //     className="button-primery"
-        //     event={ () => this._showList(true) }
-        //     eventName = 'Показать список'
-        // />
-
         return (
             <div>
-                <input className="input"  type="text" onKeyDown={ (e) => this._handleKeyPress(e)} />
+                <Paper zDepth={2} className="panel">
+                    <TextField
+                        floatingLabelText="Введите название ногово элемента"
+                        fullWidth={true}
+                        onKeyDown={ (e) => this._handleKeyPress(e)}
+                    />
+                </Paper>
             </div>
         )
     }

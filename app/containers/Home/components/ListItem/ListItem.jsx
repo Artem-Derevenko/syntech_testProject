@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { deleteItemToList, changeActiveItem, editItem } from './actions.js';
+import IconButton from 'material-ui/IconButton';
+import Divider from 'material-ui/Divider';
+import TextField from 'material-ui/TextField';
+import {cyan500} from "material-ui/styles/colors";
 
 class ListItem extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             inputText: ''
         };
     }
+
     _deleteItem = (id) => {
         this.props.onDeleteItem(id);
     }
 
     _handleKeyPress = (e) => {
         if ( e.keyCode === 13 ) {
-            this.props.onEditItem(e.target.value, this.props.itemList.id);
-            e.target.value = "";
-            this._changeActiveItem('');
+            this.props.onEditItem(this.state.inputText, this.props.itemList.id);
+            this.props.onChangeActiveItem("");
+            this.setState({
+                inputText: ''
+            });
         }
     }
 
@@ -26,31 +32,39 @@ class ListItem extends Component {
         this.props.onChangeActiveItem(id);
     }
 
-    _changeTextItem = () => {
-        const text = event.target.value;
+    handleChange = (event) => {
         this.setState({
-            inputText: text
+            inputText: event.target.value
         });
     }
 
     render() {
         const { itemList } = this.props;
+        const styles = {
+            color: {
+                color: cyan500
+            }
+        };
 
+        console.log(itemList)
         return (
-            <div className='block-item'>
-                <div className='input-wrap' onDoubleClick={ () => this._changeActiveItem(itemList.id)} >
-                    {
-                        (this.props.itemListActive === itemList.id)
-
-                            ? <input type="text"  placeholder={itemList.name}
-                                     value={this.state.inputText} className="active"
-                                     onChange={() => this._changeTextItem()}
-                                     onKeyDown={ (e) => this._handleKeyPress(e)} />
-
-                            : <input type="text" value={this.state.inputText} placeholder={itemList.name} className="" disabled />
-                    }
+            <div>
+                <div className='block-item'>
+                    <div className='input-wrap' onDoubleClick={ () => this._changeActiveItem(itemList.id)} >
+                        <TextField
+                            fullWidth={true}
+                            id={'text' + itemList.id}
+                            value={ this.state.inputText || itemList.name  }
+                            onChange={(event) => this.handleChange(event)}
+                            onKeyDown={ (e) => this._handleKeyPress(e)}
+                            disabled = {(this.props.itemListActive === itemList.id) ? false : true}
+                        />
+                    </div>
+                    <IconButton onClick={ () => this._deleteItem(itemList.id) } iconStyle={styles.color}>
+                        <i className="material-icons">delete_forever</i>
+                    </IconButton>
                 </div>
-                <img src='../../../../public/img/icons/delete.png' onClick={ () => this._deleteItem(itemList.id) } className='icon delete'/>
+                <Divider />
             </div>
         )
     }
@@ -72,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = state => {
     return {
-        itemListActive: state.listReducer.itemListActive,
+        itemListActive: state.listReducer.itemListActive
     }
 };
 

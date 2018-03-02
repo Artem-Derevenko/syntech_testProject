@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Pagination.scss';
 import { changePagination, changePaginationNext, changePaginationPrev } from "../Pagination/actions.js";
+import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
+import { cyan800, cyan500 } from 'material-ui/styles/colors';
 
-class Pagination extends Component {
+class Pagination1 extends Component {
     _changePagination = (page) => {
         this.props.onChangePagination(page);
     }
@@ -24,20 +27,37 @@ class Pagination extends Component {
             pageList.push(i);
         }
 
+        const styles = {
+            color: {
+                color: cyan500
+            },
+            colorActive: {
+                color: cyan800
+            }
+        };
+
         return (
             <div>
                 <ul className="block-pagination">
-                    <li className={ (page === 1) ? "prev hide" : "prev" } onClick={ () => this._changePaginationPrev()}>
-                        <img src="../../../../public/img/icons/prev.png"/>
+                    <li className={ (page === 1) ? "hide" : "" }>
+                        <FlatButton onClick={ () => this._changePaginationPrev()}
+                                    fullWidth={true} primary={true}
+                                    icon={<FontIcon className="material-icons">navigate_before</FontIcon>}
+                        />
                     </li>
                     {
                         pageList.map( (item, ind) => {
-                           return (<li key={ind} className={ (item === page) ? "item-pagination active" : "item-pagination" }
-                                       onClick={ () => this._changePagination(item)}>{item}</li>)
+                           return (<li key={ind} className={ (item === page) ? "active" : "" }>
+                                       <FlatButton onClick={ () => this._changePagination(item)} primary={true}
+                                                   label={item} fullWidth={true} style={ (item === page) ? styles.colorActive : styles.color } />
+                                  </li>)
                         })
                     }
-                    <li className={ (page === count) ? "next hide" : "next" } onClick={ () => this._changePaginationNext()}>
-                        <img src="../../../../public/img/icons/next.png"/>
+                    <li className={ (page === count) ? "hide" : "" }>
+                        <FlatButton onClick={ () => this._changePaginationNext()}
+                                    fullWidth={true} primary={true}
+                                    icon={<FontIcon className="material-icons" >navigate_next</FontIcon>}
+                        />
                     </li>
                 </ul>
 
@@ -69,4 +89,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Pagination);
+)(Pagination1);

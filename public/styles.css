@@ -16,29 +16,17 @@
     width: auto;
     height: auto;
     list-style-type: none;
-    margin: 0 10px;
     cursor: pointer; }
     .block-pagination li.hide {
       display: none; }
-    .block-pagination li.item-pagination {
-      width: auto;
-      font-size: 20px;
-      color: #3db4e5; }
-      .block-pagination li.item-pagination:hover {
-        color: #195E99; }
-      .block-pagination li.item-pagination.active {
-        color: #195E99; }
-    .block-pagination li img {
-      display: inline-block;
-      width: 32px;
-      height: auto;
-      float: left; }
+    .block-pagination li.active span {
+      font-size: 30px; }
 .list {
   margin: 40px 0;
   width: 600px; }
   .list .block-item {
     width: 100%;
-    padding: 12px 10px;
+    padding: 12px 20px;
     color: #8897a9;
     display: -webkit-box;
     display: -moz-box;
@@ -49,43 +37,19 @@
     -webkit-justify-content: space-between;
     -webkit-align-items: center;
     align-items: center; }
-    .list .block-item:nth-child(2n) {
-      background-color: #fff; }
-    .list .block-item:nth-child(2n+1) {
-      background-color: #f1f1f1; }
-    .list .block-item .icon {
-      display: block;
-      width: 32px;
-      height: auto;
-      cursor: pointer; }
     .list .block-item .input-wrap {
-      width: 540px;
-      height: 40px;
-      display: block; }
-      .list .block-item .input-wrap input {
-        display: block;
-        width: 100%;
-        padding: 0 15px;
-        height: 100%;
-        color: #8897a9; }
-        .list .block-item .input-wrap input.active {
-          background-color: #fff;
-          border: 1px solid #edeff1; }
-          .list .block-item .input-wrap input.active:focus::-webkit-input-placeholder {
-            color: transparent; }
-          .list .block-item .input-wrap input.active:focus::-moz-placeholder {
-            color: transparent; }
-          .list .block-item .input-wrap input.active:focus::placeholder {
-            color: transparent; }
+      width: 520px; }
+.panel {
+  padding: 0 20px 20px 20px; }
 .menu {
-  padding: 50px 0; }
+  padding: 30px 0; }
   .menu li {
     display: inline-block;
     margin-right: 30px; }
     .menu li:last-child {
       margin-right: 0; }
     .menu li a {
-      color: #0aa89e;
+      color: #00BCD4;
       font-size: 16px;
       text-transform: uppercase;
       text-decoration: none; }
@@ -129,17 +93,10 @@ a {
   background: transparent; }
 
 .page-wrap {
-  max-width: 1200px;
-  padding: 0 20px;
+  max-width: 600px;
   margin: 0 auto; }
 
-.input {
-  display: block;
-  width: 600px;
-  height: 40px;
-  border: 1px solid #0aa89e;
-  outline: none;
-  padding: 0 20px;
-  color: #8897a9; }
+.color-cyan {
+  color: #00BCD4; }
 
 /*# sourceMappingURL=styles.css.map*/

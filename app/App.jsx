@@ -6,6 +6,7 @@ import {
 	Switch
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import projectStore from './store.js';
 import About from './containers/About/About.jsx';
 import News from './containers/News/News.jsx';
@@ -15,18 +16,20 @@ import Header from './containers/Header/Header.jsx';
 import './main.scss';
 
 ReactDOM.render((
-	<Provider store={projectStore}>
-		<Router>
-			<div className="page-wrap">
-				<Header />
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route path="/about" component={About} />
-					<Route path="/news" component={News} />
-					<Route path="*" component={Page404} />
-				</Switch>
-			</div>
-		</Router>
-	</Provider>),
+	<MuiThemeProvider>
+		<Provider store={projectStore}>
+			<Router>
+				<div className="page-wrap">
+					<Header />
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route path="/about" component={About} />
+						<Route path="/news" component={News} />
+						<Route path="*" component={Page404} />
+					</Switch>
+				</div>
+			</Router>
+		</Provider>
+	</MuiThemeProvider>),
 	document.getElementById('app')
 );
