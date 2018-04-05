@@ -4,8 +4,8 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  justify-content: flex-end;
-  -webkit-justify-content: flex-end;
+  justify-content: center;
+  -webkit-justify-content: center;
   -webkit-align-items: center;
   align-items: center;
   width: 600px;
@@ -16,7 +16,8 @@
     width: auto;
     height: auto;
     list-style-type: none;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #00bcd4; }
     .block-pagination li.hide {
       display: none; }
     .block-pagination li.active span {
@@ -40,7 +41,10 @@
     .list .block-item .input-wrap {
       width: 520px; }
 .panel {
-  padding: 0 20px 20px 20px; }
+  padding: 0 0 20px 0; }
+
+.panel .wrap-tabs {
+  padding: 0 20px; }
 .menu {
   padding: 30px 0; }
   .menu li {

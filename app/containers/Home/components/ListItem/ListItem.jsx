@@ -10,7 +10,8 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputText: ''
+            authorText: '',
+            bookText: ''
         };
     }
 
@@ -20,10 +21,11 @@ class ListItem extends Component {
 
     _handleKeyPress = (e) => {
         if ( e.keyCode === 13 ) {
-            this.props.onEditItem(this.state.inputText, this.props.itemList.id);
+            this.props.onEditItem(this.state.authorText, this.state.bookText, this.props.itemList.id);
             this.props.onChangeActiveItem("");
             this.setState({
-                inputText: ''
+                authorText: '',
+                bookText: ''
             });
         }
     }
@@ -32,10 +34,20 @@ class ListItem extends Component {
         this.props.onChangeActiveItem(id);
     }
 
-    handleChange = (event) => {
-        this.setState({
-            inputText: event.target.value
-        });
+    handleChange = (event, value) => {
+        switch(value) {
+            case 'author':
+                this.setState({
+                    authorText: event.target.value
+                });
+                break;
+
+            case 'book':
+                this.setState({
+                    bookText: event.target.value
+                });
+                break;
+        }
     }
 
     render() {
@@ -53,9 +65,17 @@ class ListItem extends Component {
                     <div className='input-wrap' onDoubleClick={ () => this._changeActiveItem(itemList.id)} >
                         <TextField
                             fullWidth={true}
-                            id={'text' + itemList.id}
-                            value={ this.state.inputText || itemList.name  }
-                            onChange={(event) => this.handleChange(event)}
+                            id={'author' + itemList.id}
+                            value={ this.state.authorText || itemList.author  }
+                            onChange={(event) => this.handleChange(event, 'author')}
+                            onKeyDown={ (e) => this._handleKeyPress(e)}
+                            disabled = {(this.props.itemListActive === itemList.id) ? false : true}
+                        />
+                        <TextField
+                            fullWidth={true}
+                            id={'book' + itemList.id}
+                            value={ this.state.bookText || itemList.name  }
+                            onChange={(event) => this.handleChange(event, 'book')}
                             onKeyDown={ (e) => this._handleKeyPress(e)}
                             disabled = {(this.props.itemListActive === itemList.id) ? false : true}
                         />
@@ -78,8 +98,8 @@ const mapDispatchToProps = (dispatch) => {
         onChangeActiveItem: (id) => {
             dispatch(changeActiveItem(id));
         },
-        onEditItem: (name, id) => {
-            dispatch(editItem(name, id));
+        onEditItem: (author, name, id) => {
+            dispatch(editItem(author, name, id));
         }
     }
 };

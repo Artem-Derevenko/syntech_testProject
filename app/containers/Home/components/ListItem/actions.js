@@ -12,8 +12,8 @@ export function changeActiveItem(id) {
     };
 }
 
-export function editItem(name, id) {
+export function editItem(author, name, id) {
     return (dispatch) => {
-        dispatch({type: listAction.EDIT_ITEM, name:name, id:id });
+        dispatch({type: listAction.EDIT_ITEM, author:author, name:name, id:id });
     };
 }

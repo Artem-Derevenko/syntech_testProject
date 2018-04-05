@@ -1,4 +1,5 @@
 import * as listAction from '../../../../constants/actions/list.js';
+import api from '../../../../api/index.js';
 
 export function showList(show) {
     const listTest = ['Address verify', 'GroupAccts', 'Copy to Group', 'Copy to Data', 'Verify',
@@ -8,9 +9,14 @@ export function showList(show) {
     };
 }
 
-export function addItemToList(id, name, date) {
-    const data = { id: id, name: name, date: date};
+export function addItemToList(data) {
     return (dispatch) => {
         dispatch({type: listAction.ADD_ITEM_TO_LIST, data:data });
+    };
+}
+
+export function searchItem(str) {
+    return (dispatch) => {
+        dispatch({type: listAction.SEARCH_ITEM, text:str });
     };
 }
